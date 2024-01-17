@@ -5,3 +5,10 @@ D:\C#\ProyectoHerencia\ProyectoHerencia\obj\Debug\ProyectoHerencia.csproj.Assemb
 D:\C#\ProyectoHerencia\ProyectoHerencia\obj\Debug\ProyectoHerencia.csproj.CoreCompileInputs.cache
 D:\C#\ProyectoHerencia\ProyectoHerencia\obj\Debug\ProyectoHerencia.exe
 D:\C#\ProyectoHerencia\ProyectoHerencia\obj\Debug\ProyectoHerencia.pdb
+D:\C#\ProyectoHerencia\bin\Debug\ProyectoHerencia.exe.config
+D:\C#\ProyectoHerencia\bin\Debug\ProyectoHerencia.exe
+D:\C#\ProyectoHerencia\bin\Debug\ProyectoHerencia.pdb
+D:\C#\ProyectoHerencia\obj\Debug\ProyectoHerencia.csproj.AssemblyReference.cache
+D:\C#\ProyectoHerencia\obj\Debug\ProyectoHerencia.csproj.CoreCompileInputs.cache
+D:\C#\ProyectoHerencia\obj\Debug\ProyectoHerencia.exe
+D:\C#\ProyectoHerencia\obj\Debug\ProyectoHerencia.pdb
