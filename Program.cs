@@ -75,7 +75,10 @@ namespace ProyectoHerencia
             nombreSerVivo = nombre;
 
         }
-        public void respirar()
+
+        //Los metodos o variables "protected" solo son accesible desde su misma clase
+        //y de sus clases hijas
+        protected void respirar()
         {
             Console.WriteLine("Soy capaz de respirar");
         }
