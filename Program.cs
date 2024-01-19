@@ -63,7 +63,7 @@ namespace ProyectoHerencia
             almacenAnimales[1] = miJuan;
             almacenAnimales[2] = miCopito;
 
-            foreach (Mamiferos i in almacenAnimales) i.getNombre();
+            foreach (Mamiferos i in almacenAnimales) i.pensar();
         }
     }
 
@@ -82,6 +82,15 @@ namespace ProyectoHerencia
         public void cuidarCrias()
         {
             Console.WriteLine("Cuido de mis crias hasta que se valga por si solas");
+        }
+        
+        //Con "virtual" estamos indicando que todas las sub clases de mamiferos
+        //deberian de tener un metodo "pensar()",
+        //En otras palabras que las clases hijas podran tener el mismo metodo 
+        //y los cambios que resiva sera una sobreescritura para esta
+        public virtual void pensar()
+        {
+            Console.WriteLine("Pensamiento basico instintivo");
         }
 
         public void getNombre()
@@ -115,7 +124,14 @@ namespace ProyectoHerencia
         {
 
         }
-        public void pensar()
+
+        //Si en la clase padre hay un metodo con el mismo nombre y misma cantidad
+        //de parametros, el metodo de la clase hija del mismo nombre invalida el
+        //metodo de la clase padre siendo en este caso la salida "Soy capaz de pensar"
+
+        //Agregando "override" indicamos que el metodo no sera independiente de la clase 
+        //padre sino un sobreescritura al metodo de la clase padre
+        public override void pensar()
         {
             Console.WriteLine("Soy capaz de pensar");
         }
@@ -125,6 +141,10 @@ namespace ProyectoHerencia
         public Gorila (String nombreGorila) : base(nombreGorila)
         {
 
+        }
+        public override void pensar()
+        {
+            Console.WriteLine("Pensamiento instintivo avanzado");
         }
         public void trepar()
         {
