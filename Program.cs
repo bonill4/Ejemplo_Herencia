@@ -20,6 +20,50 @@ namespace ProyectoHerencia
             miJuan.getNombre();
             miBabieca.getNombre();
             miCopito.getNombre();
+
+            Sustitucion();
+        }
+
+        static public void Sustitucion()
+        {
+
+            //PRINCIPIO DE SUSTITUCION
+            //Este principio establece que puedes usar un objeto de una clase hija
+            //en lugar de un objeto de la clase padre sin que el programa se rompa.
+
+            //Permite que los objetos de clases hijas sean utilizados en
+            //cualquier lugar donde se esperan objetos de la clase padre
+
+            //--------------------------------------------------------
+            //PRIMERA FORMA
+            Mamiferos animal = new Caballo("Bucefalo");
+
+            Mamiferos persona = new Humano("Juan");
+
+            //--------------------------------------------------------
+            //SEGUNDA FORMA
+            Mamiferos animal1 = new Mamiferos("Bucefalo");
+
+            Caballo Bucefalo = new Caballo("Bucefalo");
+
+            //Aqui se aplica el principio de sustitucion
+            animal1 = Bucefalo;
+
+            //--------------------------------------------------------
+            //EJEMPLO
+            Caballo miBabieca = new Caballo("Babieta1");
+
+            Humano miJuan = new Humano("Juan1");
+
+            Gorila miCopito = new Gorila("Copito1");
+
+            Mamiferos[] almacenAnimales = new Mamiferos[3];
+
+            almacenAnimales[0] = miBabieca;
+            almacenAnimales[1] = miJuan;
+            almacenAnimales[2] = miCopito;
+
+            foreach (Mamiferos i in almacenAnimales) i.getNombre();
         }
     }
 
