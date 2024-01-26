@@ -23,9 +23,9 @@ namespace ProyectoHerencia
 
             Gorila miCopito = new Gorila("Copito");
 
-            //miJuan.getNombre();
-            //miBabieca.getNombre();
-            //miCopito.getNombre();
+            miJuan.getNombre();
+            miBabieca.getNombre();
+            miCopito.getNombre();
 
             //Sustitucion();
 
@@ -36,6 +36,12 @@ namespace ProyectoHerencia
             Console.WriteLine($"Numero de patas de Babieta {ImiBabieca.NumeroPatas()}");
 
             Console.WriteLine($"Patas utilizadas en el salto de Babieca: {ImiBabieca1.NumeroPatas()}");
+
+            Lagartija Juancho = new Lagartija("Juancho");
+
+            Juancho.getNombre();
+
+            miJuan.getNombre();
         }
 
         static public void Sustitucion()
@@ -116,7 +122,39 @@ namespace ProyectoHerencia
         int NumeroPatas();
     }
 
-    class Mamiferos
+    //-----------------------------------------------
+    //CLASES ABSTRACTAS
+    //
+
+    //Si la clase posee por lo menos 1 metodo abstracto la clase debera ser abstracta
+    abstract class Animales
+    {
+        public void respirar()
+        {
+            Console.WriteLine("Soy capaz de respirar");
+        }
+
+        //Asi se declara un metodo abstracto
+        public abstract void getNombre();
+
+    }
+
+    class Lagartija : Animales
+    {
+        public Lagartija(String nombre)
+        {
+            nombreReptil = nombre;
+        }
+
+        public override void getNombre()
+        {
+            Console.WriteLine($"El nombre del reptil es: {nombreReptil}");
+        }
+
+        private String nombreReptil;
+    }
+
+    class Mamiferos: Animales
     {
         public Mamiferos(String nombre)
         {
@@ -127,10 +165,6 @@ namespace ProyectoHerencia
 
         //Los metodos o variables "protected" solo son accesible desde su misma clase
         //y de sus clases hijas
-        protected void respirar()
-        {
-            Console.WriteLine("Soy capaz de respirar");
-        }
         public void cuidarCrias()
         {
             Console.WriteLine("Cuido de mis crias hasta que se valga por si solas");
@@ -145,10 +179,10 @@ namespace ProyectoHerencia
         {
             Console.WriteLine("Pensamiento basico instintivo");
         }
-
-        public void getNombre()
+        //Con "override" sobreescribimos al metodos del que estamos heredando
+        public override void getNombre()
         {
-            Console.WriteLine($"El nombre del ser vivo es: {nombreSerVivo}");
+            Console.WriteLine($"El nombre del mamifero es: {nombreSerVivo}");
         }
         private String nombreSerVivo;
     }
