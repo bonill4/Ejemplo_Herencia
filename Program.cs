@@ -13,6 +13,12 @@ namespace ProyectoHerencia
         {
             Caballo miBabieca = new Caballo("Babieta");
 
+            //Para ver los metodos de cada interfas dado el caso los metodos se repitan 
+            //se debera de crear un metodo y aplicar el metodo de sustitucion como se
+            //muestra a continuacion
+            IMamiferosTerrestres ImiBabieca = miBabieca;
+            ISaltoConPatas ImiBabieca1 = miBabieca;
+
             Humano miJuan = new Humano("Juan");
 
             Gorila miCopito = new Gorila("Copito");
@@ -27,7 +33,9 @@ namespace ProyectoHerencia
 
             miWally.nadar();
 
-            Console.WriteLine($"Numero de patas de Babieta {miBabieca.NumeroPatas()}");
+            Console.WriteLine($"Numero de patas de Babieta {ImiBabieca.NumeroPatas()}");
+
+            Console.WriteLine($"Patas utilizadas en el salto de Babieca: {ImiBabieca1.NumeroPatas()}");
         }
 
         static public void Sustitucion()
@@ -76,6 +84,14 @@ namespace ProyectoHerencia
     /*INTERFACES:
      Es como un contrato que una clase firma. Este contrato especifica qué métodos y propiedades debe proporcionar la clase que lo firma. */
 
+    //RESTRICCIONES:
+    /*
+     - No se permite definir campos (variables)
+     - No se puede definir constructores
+     - No se permite definir destructores
+     - No se puede especificar modificadores de acceso en metodos (Todos son public de forma implicita)
+     - No se puede anidar clases ni otro tipo de estructuras en las interfaces
+     */
     //Todos los nombres de las interfaces deben de iniciar con una "I"
 
     //Las interfaces pueden poseer muchos metodos
@@ -86,6 +102,17 @@ namespace ProyectoHerencia
         //No se abren llaves, no hay codigo dentro de ellas. Simplemente de declaran
 
         //No poseen modificadores de acceso
+        int NumeroPatas();
+    }
+
+    interface IAnimalesYDeportes
+    {
+        String TipoDeporte();
+        Boolean EsOlimpico();
+    }
+
+    interface ISaltoConPatas
+    {
         int NumeroPatas();
     }
 
@@ -130,7 +157,7 @@ namespace ProyectoHerencia
 
     //Sintaxis de como agregar una interfaz y el orden es: 1° La clase y 2° La interfas o interfaces 
     //separado por una ","
-    class Caballo : Mamiferos, IMamiferosTerrestres 
+    class Caballo : Mamiferos, IMamiferosTerrestres, IAnimalesYDeportes, ISaltoConPatas
     {
         //USO DE LA INSTRUCCION :base()
         /*Si el constructor de la clase padre tiene metodo por defecto podemos presindir 
@@ -150,9 +177,37 @@ namespace ProyectoHerencia
         //1 - El nombre del metodo debe de coincidir con el que se definio en la interfaz
         //2 - El tipo de dato a devolver debe de coincidir con el que se definio en la interfaz
         //3 - El numero de parametros debe de coincidir con el numero y tipo con los que se definieron en la interfaz
-        public int NumeroPatas()
+
+        //------------------------------------------------------------------------------
+        /*public int NumeroPatas()
+        //{
+        //    return 4;
+        }*/
+        //------------------------------------------------------------------------------
+
+        //EL CODIGO DE ARRIBA MUESTRA LA FORMA COMUN DE HACERLO
+        //Si en un dado caso existan 2 metodos con el mismo nombre en diferentes interfaces 
+        //la forma de solucionarlo es la siguiente:
+
+        //Precindimos del modificador de accesos en este caso "public" y solo dejamos el tipo seguido del nombre de la interfas y con punto indicamos el metodo al que queremos llamar
+
+        int IMamiferosTerrestres.NumeroPatas()
         {
             return 4;
+        }
+
+        int ISaltoConPatas.NumeroPatas() 
+        {
+            return 2;
+        }
+
+        public String TipoDeporte()
+        {
+            return "Hipica";
+        }
+        public Boolean EsOlimpico()
+        {
+            return true;
         }
     }
     class Humano : Mamiferos
