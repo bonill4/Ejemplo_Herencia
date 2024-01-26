@@ -122,9 +122,8 @@ namespace ProyectoHerencia
         int NumeroPatas();
     }
 
-    //-----------------------------------------------
     //CLASES ABSTRACTAS
-    //
+    //Son como las interfaces que asigna metodos que tenemos que implementar de forma obligada con la diferencia que dentro de estas tambien podemos crear metodos con contenido dentro de estas
 
     //Si la clase posee por lo menos 1 metodo abstracto la clase debera ser abstracta
     abstract class Animales
@@ -153,7 +152,6 @@ namespace ProyectoHerencia
 
         private String nombreReptil;
     }
-
     class Mamiferos: Animales
     {
         public Mamiferos(String nombre)
@@ -186,7 +184,6 @@ namespace ProyectoHerencia
         }
         private String nombreSerVivo;
     }
-
     //Sintaxis de como hereda de la clase "Mamifero" a "Caballo"
 
     //Sintaxis de como agregar una interfaz y el orden es: 1° La clase y 2° La interfas o interfaces 
@@ -262,6 +259,17 @@ namespace ProyectoHerencia
             Console.WriteLine("Soy capaz de pensar");
         }
     }
+    class Adolecente : Humano
+    {
+        public Adolecente(string nombreAdolecente) : base(nombreAdolecente)
+        {
+
+        }
+        public override void pensar()
+        {
+            Console.WriteLine("Las hormonas me impiden pensar con claridad");
+        }
+    }
     class Gorila : Mamiferos, IMamiferosTerrestres
     {
         public Gorila (String nombreGorila) : base(nombreGorila)
@@ -282,7 +290,14 @@ namespace ProyectoHerencia
             return 2;
         }
     }
+    class Chimpance : Gorila
+    {
+        public Chimpance(string nombreChimpace) : base(nombreChimpace)
+        {
 
+        }
+
+    }
     class Ballena : Mamiferos
     {
         public Ballena(String nombreBallena):base(nombreBallena)
@@ -296,3 +311,21 @@ namespace ProyectoHerencia
         }
     }
 }
+//Clases selladas (sealed classes)
+//Son aquellas de las cuales no se va a poder heredar 
+//Impide la herencia de clase y la sobreescritura de metodos
+
+//Sintaxis en clases 
+
+/*sealed class clase
+{
+
+    Sintaxis con metodos
+    Con "sealed" indicamos que el metodo no se puede sobreescribir
+
+    public sealed override void pensar()
+    {
+
+    }
+
+}*/
